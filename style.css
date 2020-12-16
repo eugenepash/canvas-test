@@ -1,0 +1,11 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas{
+    border: 3px solid black;
+    background: #eee;
+    cursor: crosshair;
+}
