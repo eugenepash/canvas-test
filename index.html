@@ -3,11 +3,46 @@
     <link href="style.css" rel="stylesheet">
     <title> --- Canvas Game Debelopment --- </title>
 </head>
+
 <body>
-    
-    <canvas id="myCanvas" width="1200" height="600"></canvas>
-    
-    
-    
+    <div class="head">
+        <a type='button' class="buttonStart">Старт!</a>
+        <a type="button" class="buttonSettings" href="#popup1">Настройки</a>
+    </div>
+
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <h2>Настройки</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                <div class="setColorPlayer">
+                    <p>Цвет игрока:</p>
+                    <div class="col">
+                        <input id="setRedColor" type="radio" name="colorPlayer" checked><label>Красный</label>
+                    </div>
+                    <div class="col">
+                        <input id="setYellowColor" type="radio" name="colorPlayer"><label>Желтый</label>
+                    </div>
+                    <div class="col">
+                        <input id="setBlueColor" type="radio" name="colorPlayer"><label>Синий</label>
+                    </div>
+                </div>
+                <div class="setFormPlayer">
+                    <p>Форма игрока:</p>
+                    <div class="col">
+                        <input type="radio" name="formPlayer" checked><label>Квадрат</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" name="formPlayer"><label>Круг</label>
+                    </div>
+
+                </div>
+                <div class="setImagePlayer">
+                    <p>Свое изображение:</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <canvas id="myCanvas" width="1200" height="500"></canvas>
     <script src="script.js"></script>
 </body>

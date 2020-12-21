@@ -1,14 +1,167 @@
-body{
+
+}
+body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
 }
 
-canvas{
+canvas {
     border: 3px solid black;
     background: #eee;
     cursor: crosshair;
-    
+
     transition: all 0.5s linear;
-    
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-size: cover;
+
+}
+
+.head {
+    margin: 20px;
+    padding: 0;
+
+    text-align: center;
+}
+
+.buttonStart {
+    font-size: 1em;
+    padding: 10px;
+    color: black;
+    border: 2px solid black;
+    border-radius: 2px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.buttonStart:hover {
+    background: black;
+    color: white;
+}
+
+.buttonSettings {
+    font-size: 1em;
+    padding: 10px;
+    color: black;
+    border: 2px solid black;
+    border-radius: 2px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.buttonSettings:hover {
+    background: black;
+    color: white;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin: 0;
+    padding: 20px;
+
+    background: #fff;
+    border-radius: 5px;
+    width: 70%;
+    height: 50%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .close:hover {
+    color: red;
+}
+
+.popup .content {
+    max-height: 50%;
+}
+
+@media screen and (max-width: 700px) {
+    .head {
+        width: 70%;
+    }
+
+    .popup {
+        width: 70%;
+    }
+}
+
+.col{
+    display: flex;
+    justify-content: flex-start;
+}
+.content {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 90%;
+    height: 100%;
+}
+.content input{
+    margin: 0;
+    margin-right: 5px;
+    padding: 0;
+    cursor: pointer;
+}
+.content p{
+    font-weight: 700;
+}
+.setColorPlayer {
+    margin: 10px;
+}
+
+.setFormPlayer {
+    margin: 10px;
+}
+
+.setImagePlayer {
+    margin: 10px;
 }

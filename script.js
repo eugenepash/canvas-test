@@ -91,15 +91,12 @@ function playerDraw() {
             playerHeight = 0;
         }
     }
-
 }
-
 // рисуем!
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height); // очистка каждого кадра
     playerDraw();
-
-    // проверка верхнего и правого края
+    // Проверка верхнего и правого края
     if (y < 0) {
         y = 0;
     }
@@ -112,12 +109,45 @@ function draw() {
     if (x > canvas.width || x < 0) {
         x = 0;
     }
-
-
 }
-
-
-
 let timer = setInterval(function () {
     draw(0.01);
 }, 0.01);
+
+
+
+
+
+// Обработчики кнопок:
+const setRedColor = document.querySelector('#setRedColor');
+const setYellowColor = document.querySelector('#setYellowColor');
+const setBlueColor = document.querySelector('#setBlueColor');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
