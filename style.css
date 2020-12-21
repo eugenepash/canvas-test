@@ -1,5 +1,14 @@
+/*
+COLORS
+DARK - #222831
+RED - #b2203a
+YELLOW - #edd207
+BLUE -  #334cc6
+LIGHT - #f8f1f1
+*/
 
-}
+
+
 body {
     display: flex;
     justify-content: center;
@@ -7,11 +16,14 @@ body {
     flex-direction: column;
     padding: 0;
     margin: 0;
+    
+    background-color: #222831;
+    color: #f8f1f1;
 }
 
 canvas {
-    border: 3px solid black;
-    background: #eee;
+    border: 3px solid #f8f1f1;
+    background: #222831;
     cursor: crosshair;
 
     transition: all 0.5s linear;
@@ -34,8 +46,8 @@ body {
 .buttonStart {
     font-size: 1em;
     padding: 10px;
-    color: black;
-    border: 2px solid black;
+    color: #f8f1f1;
+    border: 2px solid #f8f1f1;
     border-radius: 2px;
     text-decoration: none;
     cursor: pointer;
@@ -43,15 +55,15 @@ body {
 }
 
 .buttonStart:hover {
-    background: black;
-    color: white;
+    background: #f8f1f1;
+    color: #222831;
 }
 
 .buttonSettings {
     font-size: 1em;
     padding: 10px;
-    color: black;
-    border: 2px solid black;
+    color: #f8f1f1;
+    border: 2px solid #f8f1f1;
     border-radius: 2px;
     text-decoration: none;
     cursor: pointer;
@@ -59,8 +71,8 @@ body {
 }
 
 .buttonSettings:hover {
-    background: black;
-    color: white;
+    background: #f8f1f1;
+    color: #222831;
 }
 
 .overlay {
@@ -87,11 +99,11 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-
+    color: #222831;
     margin: 0;
     padding: 20px;
 
-    background: #fff;
+    background: #f8f1f1;
     border-radius: 5px;
     width: 70%;
     height: 50%;
@@ -101,7 +113,7 @@ body {
 
 .popup h2 {
     margin-top: 0;
-    color: #333;
+    color: #222831;
 }
 
 .popup .close {
@@ -112,11 +124,11 @@ body {
     font-size: 30px;
     font-weight: bold;
     text-decoration: none;
-    color: #333;
+    color: #222831;
 }
 
 .popup .close:hover {
-    color: red;
+    color: #b2203a;
 }
 
 .popup .content {
