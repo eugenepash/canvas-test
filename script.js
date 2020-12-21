@@ -16,7 +16,7 @@ let upPressed = 0;
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
-function keyDownHandler(e) { // клвиша нажата
+function keyDownHandler(e) { // клавиша нажата
     //влево-вправо
     if (e.key === "Right" || e.key === "ArrowRight") {
         rightPressed = true;
@@ -30,6 +30,7 @@ function keyDownHandler(e) { // клвиша нажата
         downPressed = true;
     }
 }
+
 function keyUpHandler(e) { // клавиша НЕ нажата
     //влево-вправо
     if (e.key === "Right" || e.key === "ArrowRight") {
@@ -43,9 +44,21 @@ function keyUpHandler(e) { // клавиша НЕ нажата
     } else if (e.key === "Bottom" || e.key === "ArrowDown") {
         downPressed = false;
     }
-    
+}
+
+// ОБРАБОТЧИК МЫШИ
+function getCursorPosition(canvas, event) {
+    const rect = canvas.getBoundingClientRect()
+    const xm = event.clientX - (playerWidth / 2) - rect.left
+    const ym = event.clientY - (playerHeight / 2) - rect.top
+    x = xm;
+    y = ym;
 
 }
+canvas.addEventListener('mousemove', function (e) {
+    getCursorPosition(canvas, e);
+})
+
 
 // отрисовка персонажа
 function playerDraw() {
@@ -54,7 +67,6 @@ function playerDraw() {
     ctx.fillStyle = "red";
     ctx.fill;
     ctx.closePath();
-
     // проверка вправо-влево
     if (rightPressed) {
         x += 7;
@@ -79,49 +91,33 @@ function playerDraw() {
             playerHeight = 0;
         }
     }
-    
+
 }
 
 // рисуем!
-function draw(){
+function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height); // очистка каждого кадра
     playerDraw();
-    
+
     // проверка верхнего и правого края
-    if(y > canvas.height || y < 0) {
+    if (y < 0) {
         y = 0;
     }
     // проверка нижнего края
-    if (y === 500 || y > canvas.height){
-        y = 500;
+    if (y > canvas.height - playerHeight) {
+        y = canvas.height - playerHeight;
     }
-        
+
     // проверка левого края
-    if(x > canvas.width || x < 0) {
+    if (x > canvas.width || x < 0) {
         x = 0;
     }
+
+
 }
 
 
-setInterval(draw, 10);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+let timer = setInterval(function () {
+    draw(0.01);
+}, 0.01);
