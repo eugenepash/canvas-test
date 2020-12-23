@@ -89,7 +89,7 @@ function getCursorPosition(canvas, event) {
         x = xm;
         y = ym;
     }
-    if (setFormCircle.checked){
+    if (setFormCircle.checked) {
         x = xr;
         y = yr;
     }
@@ -146,52 +146,94 @@ function playerDraw() {
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height); // очистка каждого кадра
     playerDraw();
-    
+
     // коллизия квадрата
     if (setFormQuadr.checked) {
-    // Проверка верхнего края
-    if (y < 0) {
-        y = 0;
-    }
-    // проверка правого края
-    if (x > canvas.width - playerWidth) {
-        x = canvas.width - playerWidth;
-    }
-    // проверка нижнего края
-    if (y > canvas.height - playerHeight) {
-        y = canvas.height - playerHeight;
+        // Проверка верхнего края
+        if (y < 0) {
+            y = 0;
+        }
+        // проверка правого края
+        if (x > canvas.width - playerWidth) {
+            x = canvas.width - playerWidth;
+        }
+        // проверка нижнего края
+        if (y > canvas.height - playerHeight) {
+            y = canvas.height - playerHeight;
+        }
+
+        // проверка левого края
+        if (x > canvas.width || x < 0) {
+            x = 0;
+        }
     }
 
-    // проверка левого края
-    if (x > canvas.width || x < 0) {
-        x = 0;
-    }
-    }
-    
     // коллизия круга =============================
     if (setFormCircle.checked) {
-    // Проверка верхнего края
-    if (y < 0 + playerRadius) {
-        y = 0 + playerRadius;
-    }
-    // проверка правого края
-    if (x > canvas.width - playerWidth + playerRadius) {
-        console.log('yes');
-        x = canvas.width - playerWidth + playerRadius
-    }
-    // проверка нижнего края
-    if (y > canvas.height - playerRadius) {
-        y = canvas.height - playerRadius;
-    }
-    // проверка левого края
-    if (x < 0 + playerRadius) {
-        x = 0 + playerRadius;
-    }
+        // Проверка верхнего края
+        if (y < 0 + playerRadius) {
+            y = 0 + playerRadius;
+        }
+        // проверка правого края
+        if (x > canvas.width - playerWidth + playerRadius) {
+            x = canvas.width - playerWidth + playerRadius
+        }
+        // проверка нижнего края
+        if (y > canvas.height - playerRadius) {
+            y = canvas.height - playerRadius;
+        }
+        // проверка левого края
+        if (x < 0 + playerRadius) {
+            x = 0 + playerRadius;
+        }
     }
 }
-let timer = setInterval(function () {
-    draw(0.01);
-}, 0.01);
+
+
+// генератор
+//xr = x-random
+//yr = y-random (no random, y = canvas.height)
+//radr = radius-random
+let xr = Math.floor(Math.random() * (canvas.width - 0));
+let yr = canvas.height;
+let radr = Math.floor(Math.random() * (30 - 0) + 10);
+let colorCovid = 'yellow';
+
+function covidAdd() {
+    
+    ctx.beginPath();
+    ctx.arc(xr, yr, radr, 0, 2 * Math.PI, true);
+    ctx.fillStyle = colorCovid;
+    ctx.fill();
+    ctx.closePath();
+    
+}
+
+
+
+
+    setInterval(function () {
+    draw();
+}, 20);
+
+
+for (var i = 0; i < 0.2; i++) {
+  setInterval(function(){
+    yr--;
+    covidAdd();
+    if (yr == 0 + radr){
+        yr++;
+        colorCovid = 'red';
+    }
+},0.01);
+}
+
+
+
+
+
+
+
 
 
 
